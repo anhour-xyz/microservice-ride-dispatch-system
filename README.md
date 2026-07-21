@@ -1,7 +1,7 @@
 # Microservice-Based Ride Dispatch System 🚙
 
 ## Overview:
-A web-based platform enabling users to create events, manage ticket sales and generate QR coded tickets for attendees, streamlining the event management and ticket distribution process
+It's a microservice-based ride dispatch system that manages ride requests, live driver locations, automatic driver matching and complete ride sharing lifecycle. More microservices will be added to the system.
 <br>
 
 <ins> Tech Stack: Java, Spring Boot, Redis, Kafka, MySQL, Docker, AWS </ins>
