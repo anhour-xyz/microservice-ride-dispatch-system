@@ -34,9 +34,10 @@ Rider App ─────► Ride Service ───────► Kafka (ride.r
 
 1. Location Service
 
-- Get the driver locations every 3s
-- Get the nearby drivers
-- Handle the drivers go off-line, remove
+- Real-time location tracking
+- Redis Geospatial
+- Location update APIs
+- Driver availability zones
 
 <br>
 
