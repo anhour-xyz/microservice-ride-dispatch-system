@@ -1,10 +1,16 @@
 # Microservice-Based Ride Dispatch System 🚙
 
+[Demo](https://relay-ride-dispatch.vercel.app/)
+
 ## Overview:
-It's a microservice-based ride dispatch system that manages ride requests, live driver locations, automatic driver matching and complete ride sharing lifecycle. More other microservices will be added to the system soon...
+This is a microservice-based ride dispatch system that manages ride requests, live driver locations, automatic driver matching and complete ride sharing lifecycle. The main purpose is to build a scalable and low-latency backend system that can efficiently discover available drivers and make optimal matching decisions. It aims to provide a reliable using experience for both customers and drivers. More other microservices will be added to the system soon...
 <br>
 
 <ins> Tech Stack: Java, Spring Boot, Redis, Kafka, MySQL, Docker, AWS </ins>
+
+Redis: Driver Location Storage
+MySQL: Ride Data Storage
+Kafka: Event Steaming
 
 <br>
 
@@ -30,7 +36,7 @@ Rider App ─────► Ride Service ───────► Kafka (ride.r
                     Ride Service (update ride with driver)
 ```
 
-## Details
+## Project Details
 
 1. Location Service
 
@@ -60,7 +66,7 @@ Rider App ─────► Ride Service ───────► Kafka (ride.r
 
 <br>
  
-4. Notification Service (Upcoming)
+4. Notification Service
 - Firebase Cloud Messaging
 - Driver notification (new ride request)
 - Rider notification (driver accepted)
