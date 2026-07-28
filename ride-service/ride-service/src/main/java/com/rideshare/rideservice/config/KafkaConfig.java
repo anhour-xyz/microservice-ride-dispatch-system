@@ -18,7 +18,7 @@ public class KafkaConfig{
         .build();
     }
 
-    //Topicc where Matching service published match results
+    //Topic where Matching service published match results
     //Ride service subscribes to this topic
     @Bean
     public NewTopic rideMatchedTopic(){

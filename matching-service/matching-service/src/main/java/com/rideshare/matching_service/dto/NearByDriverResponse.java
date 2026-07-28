@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-//Response recieved from locaiton service
+//Response recieved from location service
 //When quering for nearby drivers
 public class NearByDriverResponse{
     private String driverId;

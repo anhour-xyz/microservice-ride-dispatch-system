@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-// Event published to kafka when a ride is requested
-// Topic: ride.requested
+
 public class RideRequestedEvent{
     private String rideId;
     private String riderId;
@@ -18,6 +17,4 @@ public class RideRequestedEvent{
     private double dropLatitude;
     private double dropLongitude;
     private String dropAddress;
-
-
 }
