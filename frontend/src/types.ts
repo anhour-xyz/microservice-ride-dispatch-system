@@ -1,4 +1,28 @@
-export type Coordinates = { latitude: number; longitude: number }
+﻿export type Coordinates = { latitude: number; longitude: number }
+export type UserRole = 'RIDER' | 'DRIVER' | 'ADMIN'
+
+export type AuthSession = {
+  userId: string
+  accessToken: string
+  refreshToken: string
+  tokenType: string
+  expiresIn: number
+}
+
+export type RegisterResponse = {
+  userId: string
+  message: string
+}
+
+export type UserProfile = {
+  userId: string
+  displayName: string
+  phoneNumber: string
+  roles: UserRole[]
+  status: 'ACTIVE' | 'SUSPENDED' | 'DEACTIVATED'
+  createdAt: string
+  updatedAt: string
+}
 
 export type RideRequest = {
   riderId: string
