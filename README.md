@@ -3,14 +3,13 @@
 [Demo](https://relay-ride-dispatch.vercel.app/)
 
 ## Overview:
-This is a microservice-based ride dispatch system that manages ride requests, live driver locations, automatic driver matching and complete ride sharing lifecycle. The main purpose is to build a scalable and low-latency backend system that can efficiently discover available drivers and make optimal matching decisions. It aims to provide a reliable using experience for both customers and drivers. More other microservices will be added to the system soon...
+This is a microservice-based ride dispatch system that manages ride requests, live driver locations, automatic driver matching and complete ride sharing lifecycle. The main purpose is to build a scalable and low-latency backend system that can efficiently discover available drivers and make optimal matching decisions. It aims to provide a reliable using experience for both customers and drivers.
+
+Update: User service, authentication service and notification service are addded for system authentication and authorization
 <br>
 
 <ins> Tech Stack: Java, Spring Boot, Redis, Kafka, MySQL, Docker, AWS </ins>
 
-Redis: Driver Location Storage
-MySQL: Ride Data Storage
-Kafka: Event Steaming
 
 <br>
 
@@ -75,14 +74,14 @@ Rider App ─────► Ride Service ───────► Kafka (ride.r
 
 <br>
 
-6. User Service (Upcoming)
+6. User Service
 - User Registration
 - Driver Registration
 - Account Management
 
 <br>
 
-7. Authentication Service (Upcoming)
+7. Authentication Service
 - Phone number authentication
 - OTP verification
 - JWT tokens
