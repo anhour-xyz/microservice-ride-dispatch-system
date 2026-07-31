@@ -60,8 +60,6 @@ public class RideController{
         return ResponseEntity.ok(rideService.startRide(rideId));
     }
 
-    
-
     @PutMapping("/{rideId}/complete")
     public ResponseEntity<RideResponse> completeRide(
         @PathVariable("rideId") String rideId){

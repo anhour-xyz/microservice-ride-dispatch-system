@@ -6,9 +6,18 @@ import type { Ride, RideRequest } from './types'
 type Mode = 'rider' | 'driver'
 type Notice = { type: 'success' | 'error'; text: string } | null
 
+const areas = {
+  Seattle: { pickupAddress: 'Pike Place Market', pickupLatitude: 47.6097, pickupLongitude: -122.3425, dropAddress: 'Space Needle', dropLatitude: 47.6205, dropLongitude: -122.3493 },
+  Redmond: { pickupAddress: 'Redmond Town Center', pickupLatitude: 47.6709, pickupLongitude: -122.1215, dropAddress: 'Marymoor Park', dropLatitude: 47.6639, dropLongitude: -122.1257 },
+  'San Francisco': { pickupAddress: 'Ferry Building', pickupLatitude: 37.7955, pickupLongitude: -122.3937, dropAddress: 'Golden Gate Park', dropLatitude: 37.7694, dropLongitude: -122.4862 },
+  'Mountain View': { pickupAddress: 'Downtown Mountain View', pickupLatitude: 37.3947, pickupLongitude: -122.0783, dropAddress: 'Shoreline Amphitheatre', dropLatitude: 37.4267, dropLongitude: -122.0807 },
+} as const
+
+type Area = keyof typeof areas
+
 const initialForm: RideRequest = {
-  riderId: 'rider-001', pickupAddress: 'Orchard Road', pickupLatitude: 1.3048, pickupLongitude: 103.8318,
-  dropAddress: 'Marina Bay Sands', dropLatitude: 1.2834, dropLongitude: 103.8607,
+  riderId: 'rider-001',
+  ...areas.Seattle,
 }
 
 const statusLabel: Record<string, string> = {
@@ -18,6 +27,7 @@ const statusLabel: Record<string, string> = {
 
 function App() {
   const [mode, setMode] = useState<Mode>('rider')
+  const [area, setArea] = useState<Area>('Seattle')
   const [form, setForm] = useState(initialForm)
   const [ride, setRide] = useState<Ride | null>(null)
   const [submitting, setSubmitting] = useState(false)
@@ -51,6 +61,15 @@ function App() {
     ...current, [key]: key.includes('Latitude') || key.includes('Longitude') ? Number(value) : value,
   }))
 
+  const changeArea = (nextArea: Area) => {
+    const next = areas[nextArea]
+    setArea(nextArea)
+    setForm(current => ({ ...current, ...next }))
+    setDriverCoords({ latitude: next.pickupLatitude, longitude: next.pickupLongitude })
+    setRide(null)
+    setNotice({ type: 'success', text: `Current area changed to ${nextArea}.` })
+  }
+
   const locate = (target: 'pickup' | 'driver') => {
     if (!navigator.geolocation) return setNotice({ type: 'error', text: 'Location is not supported by this browser.' })
     navigator.geolocation.getCurrentPosition(({ coords }) => {
@@ -81,8 +100,15 @@ function App() {
   return <div className="app-shell">
     <header className="topbar">
       <a className="brand" href="#"><span className="brand-mark"><Navigation size={18} fill="currentColor" /></span><span>ride dispatch</span></a>
-      <nav><a href="#ride">Ride</a><a href="#safety">Safety</a><a href="#support">Support</a></nav>
-      <div className="header-actions"><button className="city">Singapore <ChevronDown size={15} /></button><button className="avatar"><CircleUserRound size={19} /><span>Account</span></button><button className="menu"><Menu /></button></div>
+      <div className="header-actions">
+        <label className="city">
+          <select value={area} onChange={event => changeArea(event.target.value as Area)} aria-label="Current area">
+            {Object.keys(areas).map(name => <option key={name} value={name}>{name}</option>)}
+          </select>
+          <ChevronDown size={15} aria-hidden="true" />
+        </label>
+        <button className="avatar"><CircleUserRound size={19} /><span>Account</span></button><button className="menu"><Menu /></button>
+      </div>
     </header>
 
     <main>

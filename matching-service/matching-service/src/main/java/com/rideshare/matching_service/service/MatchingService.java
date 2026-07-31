@@ -63,7 +63,6 @@ public class MatchingService {
 
         kafkaTemplate.send(RIDE_MATCHED_TOPIC, event.getRideId(), matchedEvent);
         log.info("RideMachedEvent published");
-
      
     }
 
