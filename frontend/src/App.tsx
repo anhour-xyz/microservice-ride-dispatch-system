@@ -151,7 +151,17 @@ function App() {
           </select>
           <ChevronDown size={15} aria-hidden="true" />
         </label>
-        <button className="avatar"><CircleUserRound size={19} /><span>Account</span></button><button className="menu"><Menu /></button>
+        <button
+          type="button"
+          className="avatar"
+          aria-haspopup="dialog"
+          aria-expanded={accountOpen}
+          onClick={() => setAccountOpen(true)}
+        >
+          <CircleUserRound size={19} />
+          <span>Account</span>
+        </button>
+        <button type="button" className="menu" aria-label="Open menu"><Menu /></button>
       </div>
     </header>
 
