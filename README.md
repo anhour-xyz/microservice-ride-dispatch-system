@@ -15,24 +15,37 @@ Update: User service, authentication service and notification service are addded
 
 ## Architecture
 ```text
-Driver Phone ──► Location Service ──► Redis (GEOADD)
+                         Rider App / Driver App
+                                  |
+                                  |
+                            API Gateway
+                    (Routing + JWT Validation)
+                                  |
+          ------------------------------------------------
+          |              |              |                |
+ Authentication     User Service    Ride Service   Location Service
+    Service             |              |                |
+          |             |              |                |
+          |             |              |                |
+   MySQL (Auth DB)  MySQL(User DB) MySQL(Ride DB)  Redis GEO
+          |
+          |
+          |
 
-Rider App ─────► Ride Service ───────► Kafka (ride.requested)
-                                        │
-                                        ▼
-                             Matching Service (Consumer)
-                                        │
-                                        ▼
-                        Location Service (find nearby drivers)
-                                        │
-                                        ▼
-                        Matching Algorithm (score drivers)
-                                        │
-                                        ▼
-                              Kafka (ride.matched)
-                                        │
-                                        ▼
-                    Ride Service (update ride with driver)
+                       Kafka
+          --------------------------------
+          |              |               |
+
+ Matching Service  Notification Service  Analytics Service
+       |                  |
+       |                  |
+
+ Location Service    Firebase Cloud Messaging
+       |
+       |
+
+ Redis GEO Search
+ (Nearby Drivers)
 ```
 
 ## Project Details
