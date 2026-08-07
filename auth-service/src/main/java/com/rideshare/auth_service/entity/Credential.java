@@ -1,4 +1,4 @@
-﻿package com.rideshare.auth_service.entity;
+package com.rideshare.auth_service.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UuidGenerator;

@@ -1,4 +1,4 @@
-﻿package com.rideshare.auth_service.service;
+package com.rideshare.auth_service.service;
 import com.rideshare.auth_service.dto.RegisterResponse;
 import com.rideshare.auth_service.exception.EmailNotVerifiedException;
 import com.rideshare.auth_service.dto.AuthResponse;

@@ -1,27 +1,31 @@
 package com.rideshare.auth_service.client;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Profile;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
+import org.springframework.web.client.RestClient;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("!local")
 public class HTTPNotificationClient
         implements NotificationClient {
 
-    private static final Logger log =
-            LoggerFactory.getLogger(HTTPNotificationClient.class);
+        private final RestClient restClient;
+        public HTTPNotificationClient(RestClient.Builder builder,
+            @Value("${app.notification-service.base-url}") String baseUrl) {
+                this.restClient = builder.baseUrl(baseUrl).build();
+        }
 
-    @Override
-    public void sendVerificationEmail(
-            String recipient,
-            String verificationUrl
-    ) {
-        log.info(
-                "Email verification requested: recipient={}, url={}",
-                recipient,
-                verificationUrl
-        );
-    }
+        @Override
+        public void sendVerificationEmail(String recipient, String verificationUrl){
+                VerificationEmailRequest request = new VerificationEmailRequest(recipient, verificationUrl);
+                restClient.post()
+                        .uri("/api/v1/internal/email/verification")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(request)
+                        .retrieve()
+                        .toBodilessEntity();
+        }
+
+        private record VerificationEmailRequest(String recipient, String verificationUrl) {
+        }
 }

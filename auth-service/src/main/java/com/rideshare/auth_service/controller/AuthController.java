@@ -1,4 +1,4 @@
-﻿package com.rideshare.auth_service.controller;
+package com.rideshare.auth_service.controller;
 
 import com.rideshare.auth_service.dto.*;
 import com.rideshare.auth_service.entity.Role;

@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+        "type": "java",
+        "name": "MatchingServiceApplication",
+        "request": "launch",
+        "mainClass": "com.rideshare.matching_service.MatchingServiceApplication",
+        "projectName": "matching-service"
+    },
+    {
+        "type": "java",
+        "name": "RideServiceApplication",
+        "request": "launch",
+        "mainClass": "com.rideshare.rideservice.RideServiceApplication",
+        "projectName": "ride-service"
+    },
+    {
+        "type": "java",
+        "name": "LocationServiceApplication",
+        "request": "launch",
+        "mainClass": "com.rideshare.location_service.LocationServiceApplication",
+        "projectName": "location-service"
+    },
+    {
+        "type": "java",
+        "name": "AuthServiceApplication",
+        "request": "launch",
+        "mainClass": "com.rideshare.auth_service.AuthServiceApplication"
+    },
+    {
+        "type": "java",
+        "name": "UserServiceApplication",
+        "request": "launch",
+        "mainClass": "com.rideshare.user_service.UserServiceApplication"
+    },
+    {
+        "type": "java",
+        "name": "Spring Boot Notification Service",
+        "request": "launch",
+        "mainClass": "com.rideshare.notification_service.NotificationServiceApplication",
+        "projectName": "notification-service",
+        "cwd": "${workspaceFolder}/notification-service/notification-service",
+        "envFile": "${workspaceFolder}/notification-service/notification-service/.env.local"
+    }
+]
+}
