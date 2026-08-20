@@ -1,11 +1,8 @@
 # Microservice-Based Ride Dispatch System 🚙
 
-[Demo](https://relay-ride-dispatch.vercel.app/)
-
 ## Overview:
-This is a microservice-based ride dispatch system that manages ride requests, live driver locations, automatic driver matching and complete ride sharing lifecycle. The main purpose is to build a scalable and low-latency backend system that can efficiently discover available drivers and make optimal matching decisions. It aims to provide a reliable using experience for both customers and drivers.
+This is a microservice-based ride dispatch backend system that manages ride requests, live driver locations, automatic driver matching and complete ride sharing lifecycle. User service, authentication service and notification service are also integrated into the system for user authentication and authorization. The main purpose is to build a scalable and low-latency backend system that can efficiently discover available drivers and make optimal matching decisions. It aims to provide a reliable using experience for both customers and drivers.
 
-Update: User service, authentication service and notification service are addded for system authentication and authorization
 <br>
 
 <ins> Tech Stack: Java, Spring Boot, Redis, Kafka, MySQL, Docker, AWS </ins>
@@ -52,17 +49,20 @@ Update: User service, authentication service and notification service are addded
 
 1. Location Service
 
-- Real-time location tracking
-- Redis Geospatial
+- Real-time location tracking based on Redis Geospatial data
 - Location update APIs
 - Driver availability zones
 
 <br>
 
+<img width="560" height="290" alt="image" src="https://github.com/user-attachments/assets/97951607-75ff-4a98-a1a3-14874255f9f2" />
+
+<br>
+<br>
+
 2. Ride Service
-- Get the request for ride, store the ride into database
-- Search the ride by ID
-- Search ride by riderID
+- Get the request for ride, store the ride into MySQL database
+- Search the ride by ID, Search ride by riderID
 - Update the ride status
   1. start
   2. complete
@@ -76,6 +76,11 @@ Update: User service, authentication service and notification service are addded
   2. Score each driver and pick the top N
   3. Publish the ride match event to Kafka
 
+<br>
+
+<img width="560" height="290" alt="image" src="https://github.com/user-attachments/assets/87d4c5ba-713b-4329-b2fd-408d2f8df4d4" />
+
+<br>
 <br>
  
 4. Notification Service
@@ -95,9 +100,12 @@ Update: User service, authentication service and notification service are addded
 <br>
 
 7. Authentication Service
-- Phone number authentication
+- Email authentication
 - OTP verification
 - JWT tokens
 
 <br>
+
+<img width="560" height="290" alt="image" src="https://github.com/user-attachments/assets/b1f784b3-de80-4f42-8027-b1e84767de6b" />
+
 
