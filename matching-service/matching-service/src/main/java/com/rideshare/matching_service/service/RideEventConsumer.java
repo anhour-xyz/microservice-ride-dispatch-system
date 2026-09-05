@@ -27,6 +27,5 @@ public class RideEventConsumer {
             log.error("Error processing ride request: {} - {}", event.getRideId(), e.getMessage());
         }
 
-        //In production: send to deaf letter queue for retry
     }
 }

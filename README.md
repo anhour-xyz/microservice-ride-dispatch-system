@@ -109,3 +109,48 @@ This is a microservice-based ride dispatch backend system that manages ride requ
 <img width="560" height="290" alt="image" src="https://github.com/user-attachments/assets/b1f784b3-de80-4f42-8027-b1e84767de6b" />
 
 
+## APIs Development
+
+```text
+
+Location Service:
+
+POST /api/v1/locationsdrivers/update
+GET /api/v1/locations/drivers/nearby
+DELETE /api/v1/locations/drivers/{driverId}
+
+
+
+Ride Service:
+
+POST /api/v1/rides/request
+GET /api/v1/rides/{riderId}
+GET /api/v1/rides/rider/{rideId}
+PUT /api/v1/rides/{rideId}/start
+PUT /api/v1/rides/{rideId}/complete
+PATCH /api/v1/rides/{rideId}/cancel
+
+
+
+User Service:
+
+POST /api/v1/users/me
+GET /api/v1/users/me
+PATCH /api/v1/users/me
+DELETE /api/v1/users/me
+
+
+
+Authentication Service:
+
+POST /api/v1/auth/register
+POST /api/v1/auth/login
+POST /api/v1/auth/refresh
+POST /api/v1/auth/logout
+GET /api/v1/auth/me
+POST /api/v1/auth/verify-email
+POST /api/v1/auth/resend-verification
+
+```
+
+

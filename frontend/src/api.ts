@@ -59,7 +59,7 @@ export const authApi = {
 }
 
 export const api = {
-  requestRide: (payload: RideRequest) => request<Ride>(`${rideBase}/api/v1/rides`, { method: 'POST', body: JSON.stringify(payload) }),
+  requestRide: (payload: RideRequest) => request<Ride>(`${rideBase}/api/v1/rides/request`, { method: 'POST', body: JSON.stringify(payload) }),
   getRide: (id: string) => request<Ride>(`${rideBase}/api/v1/rides/${encodeURIComponent(id)}`),
   getRiderRides: (riderId: string) => request<Ride[]>(`${rideBase}/api/v1/rides/rider/${encodeURIComponent(riderId)}`),
   startRide: (id: string) => request<Ride>(`${rideBase}/api/v1/rides/${encodeURIComponent(id)}/start`, { method: 'PUT' }),

@@ -14,3 +14,4 @@ public class NearbyDriverResponse {
     private double longitude;
     private double distanceInKm;
 }
+
