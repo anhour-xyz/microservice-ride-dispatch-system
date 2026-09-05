@@ -29,15 +29,15 @@ This is a microservice-based ride dispatch backend system that manages ride requ
           |
           |
 
-                       Kafka
-          --------------------------------
-          |              |               |
+                Kafka
+          ----------------
+          |              |      
 
- Matching Service  Notification Service  Analytics Service
-       |                  |
-       |                  |
+ Matching Service  Notification Service  
+       |                  
+       |                  
 
- Location Service    Firebase Cloud Messaging
+ Location Service   
        |
        |
 
